@@ -1,8 +1,6 @@
 package com.test.article.exemple.purchase.domain.purchase.model;
 
 
-import java.util.Objects;
-
 public record History(int customerId, Product product, int amount) {
 
     public static final String COLON_SYMBOL = ":";

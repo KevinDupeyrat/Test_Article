@@ -14,9 +14,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CustomerUseCaseTest {
 
@@ -55,11 +57,46 @@ class CustomerUseCaseTest {
     }
 
     @Test
+    void customer_logout_successful() {
+        // given
+        final var name = "name";
+        final var email = "email@email.com";
+        final Customer customerLogged = sut.createAccount(name, email);
+        sut.login(name, email);
+        // when
+        final boolean result = sut.logout(customerLogged.id());
+        // then
+        assertTrue(result);
+    }
+
+    @Test
+    void customer_can_not_logout_before_login() {
+        // given
+        final var name = "name";
+        final var email = "email@email.com";
+        final Customer customerLogged = sut.createAccount(name, email);
+        // when
+        final boolean result = sut.logout(customerLogged.id());
+        // then
+        assertFalse(result);
+    }
+
+    @Test
+    void unknow_customer_not_logout() {
+        // when - then
+        assertThrows(
+                InvalidCustomerException.class,
+                () -> sut.logout(1)
+        );
+    }
+
+    @Test
     void get_customer_by_id() {
         // given
         final var name = "name";
         final var email = "email@email.com";
         sut.createAccount(name, email);
+        sut.createAccount("fakeName", "fake@email.com");
         final Customer customer = sut.login(name, email);
         // when
         final Customer result = sut.getCustomer(customer.id());

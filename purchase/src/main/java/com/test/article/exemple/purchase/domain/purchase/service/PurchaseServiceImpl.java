@@ -1,5 +1,6 @@
 package com.test.article.exemple.purchase.domain.purchase.service;
 
+import com.test.article.exemple.purchase.domain.customer.error.CustomerNotLoggedException;
 import com.test.article.exemple.purchase.domain.customer.error.InvalidCustomerException;
 import com.test.article.exemple.purchase.domain.customer.service.CustomerService;
 import com.test.article.exemple.purchase.domain.purchase.model.Product;
@@ -18,6 +19,9 @@ public class PurchaseServiceImpl implements PurchaseService {
     public boolean purchase(Product product, int amount, int customerId) {
         if (!customerService.customerExist(customerId)) {
             throw new InvalidCustomerException("Customer not found");
+        }
+        if (!customerService.customerIsLogged(customerId)) {
+            throw new CustomerNotLoggedException("Customer have to login before purchase !");
         }
         if (!storeService.storeIsEnought(product, amount)) {
             return false;

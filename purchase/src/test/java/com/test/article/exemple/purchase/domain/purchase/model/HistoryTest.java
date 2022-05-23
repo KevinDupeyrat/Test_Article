@@ -37,9 +37,9 @@ public class HistoryTest {
     public static Stream<Arguments> customerParam() {
         return Stream.of(
                 null,
-                Arguments.of(new History(2, Product.SHAMPOO, 3)),
-                Arguments.of(new History(1, Product.SHOWER_GEL, 3)),
-                Arguments.of(new History(1, Product.SHAMPOO, 45)),
+                Arguments.of(new History(2, Product.SHAMPOO, 5)),
+                Arguments.of(new History(1, Product.SHAMPOO, 3)),
+                Arguments.of(new History(1, Product.SHOWER_GEL, 5)),
                 Arguments.of(new Object())
         );
     }

@@ -22,7 +22,7 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public boolean storeIsEnought(final Product product, final int amount) {
-        return (amount <= stockInMemory.get(product));
+        return amount <= stockInMemory.get(product);
     }
 
     @Override
