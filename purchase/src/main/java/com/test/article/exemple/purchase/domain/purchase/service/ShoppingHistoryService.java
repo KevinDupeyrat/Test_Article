@@ -5,7 +5,7 @@ import com.test.article.exemple.purchase.domain.purchase.model.Product;
 
 import java.util.List;
 
-public interface ShoppingHistoryService {
+interface ShoppingHistoryService {
 
     void saveToHistory(final int customerId, final Product product, final int amount);
 

@@ -4,7 +4,7 @@ import com.test.article.exemple.purchase.domain.purchase.model.Product;
 
 import java.util.EnumMap;
 
-public class StoreServiceImpl implements StoreService {
+class StoreServiceImpl implements StoreService {
 
     private final EnumMap<Product, Integer> stockInMemory;
 

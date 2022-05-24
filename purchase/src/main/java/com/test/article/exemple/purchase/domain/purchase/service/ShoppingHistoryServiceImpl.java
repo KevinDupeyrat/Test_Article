@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 
-public class ShoppingHistoryServiceImpl implements ShoppingHistoryService {
+class ShoppingHistoryServiceImpl implements ShoppingHistoryService {
 
     private final String rootPath;
     private final String fileName;

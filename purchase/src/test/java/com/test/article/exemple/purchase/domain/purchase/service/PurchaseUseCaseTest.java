@@ -1,4 +1,4 @@
-package com.test.article.exemple.purchase.domain.purchase.usecase;
+package com.test.article.exemple.purchase.domain.purchase.service;
 
 import com.test.article.exemple.purchase.domain.customer.error.CustomerNotLoggedException;
 import com.test.article.exemple.purchase.domain.customer.error.InvalidCustomerException;
@@ -7,12 +7,6 @@ import com.test.article.exemple.purchase.domain.customer.service.CustomerService
 import com.test.article.exemple.purchase.domain.customer.service.CustomerServiceImpl;
 import com.test.article.exemple.purchase.domain.purchase.model.History;
 import com.test.article.exemple.purchase.domain.purchase.model.Product;
-import com.test.article.exemple.purchase.domain.purchase.service.PurchaseService;
-import com.test.article.exemple.purchase.domain.purchase.service.PurchaseServiceImpl;
-import com.test.article.exemple.purchase.domain.purchase.service.ShoppingHistoryService;
-import com.test.article.exemple.purchase.domain.purchase.service.ShoppingHistoryServiceImpl;
-import com.test.article.exemple.purchase.domain.purchase.service.StoreService;
-import com.test.article.exemple.purchase.domain.purchase.service.StoreServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -21,7 +15,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.File;
 import java.util.List;
-import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

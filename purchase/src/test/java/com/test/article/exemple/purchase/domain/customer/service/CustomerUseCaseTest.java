@@ -1,9 +1,7 @@
-package com.test.article.exemple.purchase.domain.customer.usecase;
+package com.test.article.exemple.purchase.domain.customer.service;
 
 import com.test.article.exemple.purchase.domain.customer.error.InvalidCustomerException;
 import com.test.article.exemple.purchase.domain.customer.model.Customer;
-import com.test.article.exemple.purchase.domain.customer.service.CustomerService;
-import com.test.article.exemple.purchase.domain.customer.service.CustomerServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
